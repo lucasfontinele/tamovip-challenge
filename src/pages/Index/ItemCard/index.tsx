@@ -30,7 +30,7 @@ const ItemCard = ({
           <b>{name}</b>
           <p>{description}</p>
           <p className="price">{toCurrency(price)}</p>
-          <CartButton onClick={handleAddCart}>
+          <CartButton onClick={handleAddCart} data-testid="button-add">
             <FiPlus size={20} />
           </CartButton>
         </ActionArea>

@@ -18,7 +18,7 @@ import categories from './mock';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const IndexPage: React.FC = () => {
+const IndexPage = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state: ApplicationState) => state.cart);
 
@@ -92,6 +92,7 @@ const IndexPage: React.FC = () => {
               handleClick={() => handleClick(index)}
               selected={index === selectedCategory}
               celebrities={category.celebrities}
+              data-testid="categories-node"
             />
           ))}
         </div>
