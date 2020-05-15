@@ -2,16 +2,31 @@ import React from 'react';
 
 import { Container } from './styles';
 
-// assets
-import soccerImg from '../../../static/images/soccer-ball.jpg';
+import { ICelebrities } from '../ItemCard';
 
-const CategoryCard = () => {
+export interface Categories {
+  id?: number;
+  name: string;
+  description: string;
+  image: string;
+  selected?: boolean;
+  handleClick?: () => void;
+  celebrities: ICelebrities[];
+}
+
+const CategoryCard = ({
+  name,
+  description,
+  image,
+  selected,
+  handleClick,
+}: Categories) => {
   return (
-    <Container>
-      <img src={soccerImg} alt="category" />
+    <Container selectedItem={selected} onClick={handleClick}>
+      <img src={image} alt="category" />
       <div>
-        <b>Futebol</b>
-        <p>Jogadores de futebol</p>
+        <b>{name}</b>
+        <p>{description}</p>
       </div>
     </Container>
   );

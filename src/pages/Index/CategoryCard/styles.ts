@@ -1,4 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+interface IContainer {
+  selectedItem?: boolean;
+}
 
 const hoverCard = keyframes`
   from {
@@ -10,7 +14,7 @@ const hoverCard = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<IContainer>`
   height: 185px;
   width: 440px;
 
@@ -27,8 +31,9 @@ export const Container = styled.div`
     width: 120px;
 
     border-radius: 50%;
-
     margin-right: 55px;
+
+    pointer-events: none;
   }
 
   :hover {
@@ -54,4 +59,17 @@ export const Container = styled.div`
     line-height: 27px;
     color: #473889;
   }
+
+  ${(props) =>
+    props.selectedItem &&
+    css`
+      b {
+        color: #fff;
+      }
+      p {
+        color: #fff;
+      }
+
+      animation: ${hoverCard} 0.5s linear normal forwards;
+    `}
 `;
